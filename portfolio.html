@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Resources — Quran, Hadith, articles and more." />
+  <meta name="theme-color" content="#15803d" />
+  <title>Islamic Portal — Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="resources">
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Islamic Portal</a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌍</button>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="index.html#prayer-times">Prayer Times</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="container">
+      <h1>Resources</h1>
+      <p style="margin-bottom:12px;">Explore Islamic resources below. Click any card to visit.</p>
+      <details style="margin-bottom:16px;">
+        <summary style="cursor:pointer;font-weight:600;color:var(--accent);padding:6px;font-size:0.95rem;">+ Suggest a Resource</summary>
+        <form id="add-resource" style="margin-top:12px;display:grid;grid-template-columns:1fr 2fr 1fr auto;gap:8px;align-items:end;">
+          <input id="res-title" placeholder="Title" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(0,0,0,0.18);color:inherit;font-size:0.9rem;" />
+          <input id="res-desc" placeholder="Description" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(0,0,0,0.18);color:inherit;font-size:0.9rem;" />
+          <input id="res-url" placeholder="URL" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(0,0,0,0.18);color:inherit;font-size:0.9rem;" />
+          <button type="submit" class="btn primary" style="padding:10px 16px;font-size:0.9rem;">Add</button>
+        </form>
+        <p id="add-resource-status" class="muted" style="margin:8px 0 0 0;font-size:0.9rem;"></p>
+      </details>
+      <div class="resource-controls" style="display:flex;gap:12px;align-items:center;margin:12px 0 6px;">
+        <input id="resources-search" aria-label="Search resources" placeholder="Search resources (title, description)..." style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.18);color:inherit" />
+        <div id="resources-count" class="muted">0 results</div>
+      </div>
+      <div class="projects" id="resources-grid">
+        <!-- JS will populate resource cards -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div style="margin-bottom:16px;">
+      <p style="margin:0 0 8px 0;font-size:0.9rem;"><strong>Site Pages:</strong></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="btn ghost" style="font-size:0.85rem;padding:6px 12px;">Home</a>
+        <a href="about.html" class="btn ghost" style="font-size:0.85rem;padding:6px 12px;">About</a>
+        <a href="portfolio.html" class="btn ghost" style="font-size:0.85rem;padding:6px 12px;">Resources</a>
+      </div>
+    </div>
+    <form id="newsletter" class="newsletter" onsubmit="return false;">
+      <label for="email">Join our newsletter</label>
+      <input id="email" type="email" placeholder="you@example.com" required />
+      <button id="subscribe" class="btn primary">Subscribe</button>
+      <p id="newsletter-status" class="muted"></p>
+    </form>
+    <p style="margin:12px 0 0 0;font-size:0.85rem;">© <span id="year"></span> Islamic Portal</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

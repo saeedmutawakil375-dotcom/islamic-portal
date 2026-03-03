@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Islamic Portal — modern site with prayer times, Quran resources, and community." />
+  <meta name="theme-color" content="#15803d" />
+  <title>Islamic Portal — Home (Standalone)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+/* Inlined stylesheet (from assets/css/style.css) */
+:root{
+  /* Ghanaian theme */
+  --bg-1: #081911;
+  --accent: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-green: #15803d;
+  --glass: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+  --muted: rgba(255,255,255,0.85);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial; color:var(--accent);
+  background: url('https://source.unsplash.com/1600x900/?kente,ghana,african%20textile') center/cover no-repeat;
+  background-color: var(--bg-1);
+  background-blend-mode: overlay;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 6px, rgba(0,0,0,0) 6px 12px), linear-gradient(120deg, rgba(245,158,11,0.06), rgba(239,68,68,0.04), rgba(21,128,61,0.05));
+  pointer-events:none;z-index:0;
+}
+.nav{padding:18px 24px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.brand{font-family:Poppins,Inter;font-weight:600;color:var(--accent);text-decoration:none}
+.links{margin-left:auto;display:flex;gap:14px}
+.links a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;transition:all .18s}
+.links a:hover{background:rgba(255,255,255,0.03);color:var(--accent)}
+.menu-toggle{display:none;background:transparent;border:0;color:var(--accent);font-size:20px}
+
+.hero{display:flex;align-items:center;justify-content:center;padding:80px 20px}
+.card{backdrop-filter:blur(10px);background:var(--glass);border:1px solid var(--glass-border);padding:36px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6);max-width:900px;text-align:center}
+.title{font-family:Poppins,Inter;font-size:38px;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.actions{display:flex;gap:12px;justify-content:center}
+.btn{padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn.primary{background:linear-gradient(90deg,var(--accent-green),var(--accent));color:#081911}
+.btn.ghost{border:1px solid rgba(255,255,255,0.08);color:var(--accent);background:transparent}
+
+.features{padding:40px 20px}
+.feature-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.feature{background:transparent;padding:18px;border-radius:12px}
+.feature h3{margin:0 0 6px}
+.feature p{margin:0;color:var(--muted)}
+
+.page{padding:40px 20px}
+.container{max-width:980px;margin:0 auto}
+.page-card{padding:28px}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
+.project{padding:18px;text-align:center;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px}
+
+.site-footer{text-align:center;padding:28px;color:var(--muted)}
+
+@media (max-width:700px){
+  .links{display:none}
+  .menu-toggle{display:block;margin-left:auto}
+  .title{font-size:28px}
+  .card{padding:22px}
+}
+
+/* small entrance animation */
+.card{transform:translateY(6px);opacity:0;animation:fadeUp .7s ease forwards}
+@keyframes fadeUp{to{transform:none;opacity:1}}
+
+/* Background blobs */
+.bg-blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-blobs svg{width:140%;height:140%;transform:translate(-10%,-10%);display:block}
+.blob{transform-origin:50% 50%;will-change:transform,opacity}
+.b1{animation:float1 12s ease-in-out infinite;mix-blend-mode:screen}
+.b2{animation:float2 18s ease-in-out infinite;mix-blend-mode:screen}
+.b3{animation:float3 14s ease-in-out infinite;mix-blend-mode:screen}
+
+@keyframes float1{0%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}100%{transform:translateY(0) scale(1)}}
+@keyframes float2{0%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(40px) translateX(-30px) scale(1.04)}100%{transform:translateY(0) translateX(0) scale(1)}}
+@keyframes float3{0%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-24px) translateX(20px) scale(1.03)}100%{transform:translateY(0) translateX(0) scale(1)}}
+
+/* Ensure content sits above decorative blobs */
+header, main, footer{position:relative;z-index:1}
+
+/* Feature reveal stagger */
+.feature{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+.feature.visible{opacity:1;transform:none}
+
+.project{padding:18px;text-align:center;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;transition:transform .18s ease,box-shadow .18s ease}
+.project:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 40px rgba(2,6,23,0.65)}
+.project img{width:100%;height:auto;border-radius:10px;margin-bottom:12px;display:block}
+.project h4{margin:6px 0 4px}
+.muted{color:var(--muted);font-size:0.95rem}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .blob, .card, .feature, .project {animation: none !important; transition: none !important}
+}
+
+  </style>
+</head>
+<body>
+  <!-- Inline decorative blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <svg width="1200" height="800" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#7c3aed" stop-opacity="0.55" />
+          <stop offset="1" stop-color="#06b6d4" stop-opacity="0.45" />
+        </linearGradient>
+        <filter id="blur"><feGaussianBlur stdDeviation="60"/></filter>
+      </defs>
+      <g filter="url(#blur)">
+        <circle class="blob b1" cx="180" cy="140" r="120" fill="url(#g1)" />
+        <circle class="blob b2" cx="980" cy="220" r="140" fill="#38bdf8" fill-opacity="0.14" />
+        <circle class="blob b3" cx="640" cy="580" r="160" fill="#8b5cf6" fill-opacity="0.12" />
+      </g>
+    </svg>
+  </div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">Islamic Portal</a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="card">
+        <h1 class="title">Beautiful by design</h1>
+        <p class="lead">A small demo site with glassmorphism, smooth motion, and responsive layout.</p>
+        <div class="actions">
+          <a class="btn primary" href="#portfolio">See Work</a>
+          <a class="btn ghost" href="#about">About</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Glassmorphism</h3>
+          <p>Frosted panels and modern translucency.</p>
+        </article>
+        <article class="feature">
+          <h3>Responsive</h3>
+          <p>Looks great across devices.</p>
+        </article>
+        <article class="feature">
+          <h3>Performance</h3>
+          <p>Vanilla HTML/CSS/JS for speed and simplicity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="page">
+      <section class="container card page-card">
+        <h1>About</h1>
+        <p>This is a minimal demo site showcasing glassmorphism and clean UI principles. Replace this content with your bio or project goals.</p>
+      </section>
+    </section>
+
+    <section id="portfolio" class="page container">
+      <h1>Portfolio</h1>
+      <p>Project gallery placeholder. Add your images or project cards here.</p>
+      <div class="projects">
+        <div class="project card">
+          <!-- inline project1.svg -->
+          <svg viewBox="0 0 300 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect width="300" height="180" rx="14" fill="#0b1220"/>
+            <g fill="#fff" fill-opacity="0.06">
+              <rect x="16" y="16" width="120" height="56" rx="8"/>
+              <rect x="16" y="80" width="220" height="12" rx="6"/>
+              <rect x="16" y="102" width="180" height="12" rx="6"/>
+            </g>
+            <circle cx="240" cy="46" r="28" fill="#7c3aed" fill-opacity="0.22"/>
+          </svg>
+          <h4>Project 1</h4>
+          <p class="muted">Brief description of project one.</p>
+        </div>
+
+        <div class="project card">
+          <!-- inline project2.svg -->
+          <svg viewBox="0 0 300 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="p2" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4" stop-opacity="0.28"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0.22"/></linearGradient>
+            </defs>
+            <rect width="300" height="180" rx="14" fill="#071025"/>
+            <rect x="20" y="20" width="260" height="120" rx="10" fill="url(#p2)"/>
+          </svg>
+          <h4>Project 2</h4>
+          <p class="muted">Brief description of project two.</p>
+        </div>
+
+        <div class="project card">
+          <!-- inline project3.svg -->
+          <svg viewBox="0 0 300 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect width="300" height="180" rx="14" fill="#071025"/>
+            <g transform="translate(20,20)" fill="#fff" fill-opacity="0.06">
+              <rect width="110" height="90" rx="8"/>
+              <rect x="130" width="140" height="18" rx="8"/>
+              <rect x="130" y="26" width="100" height="10" rx="6"/>
+              <rect x="130" y="46" width="160" height="10" rx="6"/>
+            </g>
+          </svg>
+          <h4>Project 3</h4>
+          <p class="muted">Brief description of project three.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Islamic Portal — Crafted with care</p>
+  </footer>
+
+  <script>
+  // Inlined main.js (small interactions and reveal logic)
+  document.addEventListener('DOMContentLoaded',()=>{
+    const yearEl = document.getElementById('year');
+    if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.links');
+    if(toggle && links){
+      toggle.addEventListener('click',()=>{
+        links.classList.toggle('open');
+        links.style.display = links.classList.contains('open') ? 'flex' : '';
+      });
+    }
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#') && href.length>1){
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior: reduced ? 'auto' : 'smooth'});
+        }
+      })
+    })
+
+    if(!reduced && 'IntersectionObserver' in window){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+      },{threshold:0.12});
+      document.querySelectorAll('.feature').forEach((el,i)=>{ el.style.transitionDelay = (i*80)+'ms'; obs.observe(el); });
+    } else {
+      document.querySelectorAll('.feature').forEach(el=>el.classList.add('visible'))
+    }
+  });
+  </script>
+</body>
+</html>

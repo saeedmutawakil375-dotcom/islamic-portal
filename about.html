@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="About — Islamic Portal information and mission." />
+  <meta name="theme-color" content="#15803d" />
+  <title>Islamic Portal — About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Islamic Portal</a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌍</button>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="index.html#prayer-times">Prayer Times</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="container card page-card">
+      <h1>About Islamic Portal</h1>
+      <p>The Islamic Portal began as a lightweight, privacy-focused project to make essential Islamic resources easily accessible across devices. It combines daily prayer times, Quranic passages, hadith references, and a curated resources index — all presented with a modern, responsive UI inspired by cultural aesthetics.</p>
+      <h3>Mission</h3>
+      <p>To provide accurate, easy-to-use Islamic tools and educational materials that respect user privacy and work well on low-bandwidth devices and phones.</p>
+      <h3>Features</h3>
+      <ul>
+        <li>Geolocation-aware prayer times with live countdown</li>
+        <li>Themeable UI (Ghanaian kente / Islamic architecture)</li>
+        <li>Curated resources with live search and easy access</li>
+        <li>Minimal dependencies — pure HTML/CSS/JS for speed</li>
+      </ul>
+      <h3>Privacy</h3>
+      <p>This site does not store personal information by default. The newsletter form is a mock in this demo; if you connect a backend, consider storing emails securely and providing unsubscribe options.</p>
+      <h3>Contribute</h3>
+      <p>To contribute resources, translations, or UI improvements, fork the repo and submit a pull request. Keep content verifiable and cite sources for religious texts.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div style="margin-bottom:16px;">
+      <p style="margin:0 0 8px 0;font-size:0.9rem;"><strong>Site Pages:</strong></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="btn ghost" style="font-size:0.85rem;padding:6px 12px;">Home</a>
+        <a href="about.html" class="btn ghost" style="font-size:0.85rem;padding:6px 12px;">About</a>
+        <a href="portfolio.html" class="btn ghost" style="font-size:0.85rem;padding:6px 12px;">Resources</a>
+      </div>
+    </div>
+    <form id="newsletter" class="newsletter" onsubmit="return false;">
+      <label for="email">Join our newsletter</label>
+      <input id="email" type="email" placeholder="you@example.com" required />
+      <button id="subscribe" class="btn primary">Subscribe</button>
+      <p id="newsletter-status" class="muted"></p>
+    </form>
+    <p style="margin:12px 0 0 0;font-size:0.85rem;">© <span id="year"></span> Islamic Portal</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
