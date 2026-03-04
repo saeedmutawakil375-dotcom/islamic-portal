@@ -12,20 +12,20 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   }
 
-  // theme toggle (Ghanaian <-> Islamic)
+  // theme toggle (Islamic Dark <-> Arabian)
   const THEME_KEY = 'site-theme';
   function applyTheme(theme){
-    document.body.classList.remove('theme-ghana','theme-islamic');
+    document.body.classList.remove('theme-dark-islamic','theme-arabian');
     document.body.classList.add(`theme-${theme}`);
     document.querySelectorAll('#theme-toggle').forEach(btn=>{
-      btn.textContent = theme==='ghana' ? '🇬🇭' : '🕌';
+      btn.textContent = theme==='dark-islamic' ? '🌙' : '⭐';
     });
   }
-  const saved = localStorage.getItem(THEME_KEY) || 'ghana';
+  const saved = localStorage.getItem(THEME_KEY) || 'dark-islamic';
   applyTheme(saved);
   document.querySelectorAll('#theme-toggle').forEach(btn=>{
     btn.addEventListener('click',()=>{
-      const next = document.body.classList.contains('theme-ghana') ? 'islamic' : 'ghana';
+      const next = document.body.classList.contains('theme-dark-islamic') ? 'arabian' : 'dark-islamic';
       applyTheme(next);
       localStorage.setItem(THEME_KEY,next);
     });
