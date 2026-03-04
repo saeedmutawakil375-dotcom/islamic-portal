@@ -12,20 +12,20 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   }
 
-  // theme toggle (Islamic Dark <-> Arabian)
+  // theme toggle (Bold Green <-> Deep Green)
   const THEME_KEY = 'site-theme';
   function applyTheme(theme){
-    document.body.classList.remove('theme-dark-islamic','theme-arabian');
+    document.body.classList.remove('theme-bold-green','theme-deep-green');
     document.body.classList.add(`theme-${theme}`);
     document.querySelectorAll('#theme-toggle').forEach(btn=>{
-      btn.textContent = theme==='dark-islamic' ? '🌙' : '⭐';
+      btn.textContent = theme==='bold-green' ? '☀️' : '🌲';
     });
   }
-  const saved = localStorage.getItem(THEME_KEY) || 'dark-islamic';
+  const saved = localStorage.getItem(THEME_KEY) || 'bold-green';
   applyTheme(saved);
   document.querySelectorAll('#theme-toggle').forEach(btn=>{
     btn.addEventListener('click',()=>{
-      const next = document.body.classList.contains('theme-dark-islamic') ? 'arabian' : 'dark-islamic';
+      const next = document.body.classList.contains('theme-bold-green') ? 'deep-green' : 'bold-green';
       applyTheme(next);
       localStorage.setItem(THEME_KEY,next);
     });
